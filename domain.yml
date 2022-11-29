@@ -15,6 +15,8 @@ intents:
 actions:
   - action_handle_options
   - action_handle_benefits
+  - action_handle_self
+  - action_handle_learn_more
 
 entities:
   - option
@@ -44,10 +46,10 @@ slots:
 
 responses:
   utter_greet:
-  - text: "Salam, this is Sunny 🌞 an intelligent chatbot powered by SolarAi ⚡\n
+  - text: " Salam, this is Sunny 🌞 an intelligent chatbot powered by SolarAi ⚡\n
 I can help you find out how much you can save on your electricity bills 💵 while helping out our planet 🌏\n
 I will also help answer general queries relating to offsetting expensive & unstable grid energy 💥 with cheaper planet-friendly solar energy 🙋‍♂\n\t
-\nMain Menu:\n
+\n Main Menu:\n
 Please choose from the following options 👇\n
     \t\t1.  Benefits of planet-friendly Solar Energy 🚀\n
     \t\t2.  Quick self-assessment of your solarization potential 🚦\n

@@ -1,6 +1,2 @@
-if [ -z "$PORT"]
-then
-  PORT=5005
-fi
 
-rasa run -m models --enable-api --cors “*” -p $PORT
+rasa run --model models --enable-api --cors "*" --debug --port $PORT
