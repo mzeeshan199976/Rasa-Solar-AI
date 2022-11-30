@@ -1,10 +1,7 @@
-FROM rasa/rasa:3.0.0
-
+FROM rasa/rasa:3.3.0
 ADD . /app/
-COPY server.sh /app/server.sh
-
 USER root
 RUN chmod -R 777 /app
 USER 1001
 RUN rasa train
-ENTRYPOINT ["/app/server.sh"]
+ENTRYPOINT ["/app/start_services.sh"]

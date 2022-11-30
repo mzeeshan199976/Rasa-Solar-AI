@@ -11,6 +11,7 @@ intents:
   - mood_unhappy
   - bot_challenge
   - give_option
+  - main_menu
 
 actions:
   - action_handle_options
@@ -54,9 +55,6 @@ Please choose from the following options 👇\n
     \t\t1.  Benefits of planet-friendly Solar Energy 🚀\n
     \t\t2.  Quick self-assessment of your solarization potential 🚦\n
     \t\t3.  Learn more about Solar Ai and my human coworkers 💁 "
-  utter_cheer_up:
-  - text: "Here is something to cheer you up:"
-    image: "https://i.imgur.com/nGF1K8f.jpg"
 
   utter_did_that_help:
   - text: "Did that help you?"

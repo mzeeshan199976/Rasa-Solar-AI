@@ -35,8 +35,9 @@ class ActionHandleOptions(Action):
                                 "self": {
                                      1: ("action_handle_self","1"),
                                      2: ("action_handle_self","2"),
-                                     3: ("action_handle_self","3"),
-                                }
+                                     3: ("action_handle_self","3"),},
+                                "learn": {
+                                     1: ("action_handle_learn_more","1"),},
 }
         try:
             option = int(tracker.get_slot("option"))
@@ -91,7 +92,6 @@ You may select any of the following options to know more about solar energy! ðŸ‘
             2.  What are the environmental benefits of solar energy?\n
             3.  How do I find out how much I pay for electricity?\n
             4.  What is net metering?"""
-            message1 = """{}"""
             #message=message+str(suboption) 
             dispatcher.utter_message(text=message)
 
@@ -103,7 +103,7 @@ You may select any of the following options to know more about solar energy! ðŸ‘
             # We are in a submenu
             message = """
             1.  How do solar photovoltaic (PV) panels work?
-            2.  Do my solar panels produce power when the sun isnâ€™t shining?
+            2.  Do my solar panels produce power when the sun isn't shining?
             3.  What happens if there is dust on solar panels?
             4.  Can I go off grid with solar panels?
             5.  Will I still receive an electric bill if I have solar panels?
@@ -201,6 +201,38 @@ Please select an option from above\n"""
             # We are in a submenu
             message = """
             get data from user"""
+            dispatcher.utter_message(text=message)
+
+            # Indicate the submenu in which the options below will be processed
+            return [SlotSet('submenu', "main"),
+                    SlotSet('suboption', None)]
+
+
+class ActionHandlelearn(Action):
+
+    def name(self) -> Text:
+        return "action_handle_learn_more"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        suboption = tracker.get_slot("suboption")
+        if suboption is None:
+            # We are in the main menu
+            message = """Welcome to Solar Ai! If you are looking to solarize your home or just stopping by for a quick assessment of the solar potential at your location, we are happy to help! Caring for our customers is our top priority.\n 
+                1.	Learn more about Solar Ai\n
+                2.	Learn more about my human coworkers\n
+                3.	Speak to my human coworkers\n"""
+
+            #message=message+str(suboption) 
+            dispatcher.utter_message(text=message)
+            # Indicate the submenu in which the options below will be processed
+            return [SlotSet('submenu', "benefits")]
+        
+        else:
+            # We are in a submenu
+            message = """My human co-worker will get in touch with you shortly! Meanwhile, please feel free to browse through the menu. Alternatively, you can visit our website to set up a remote meeting from our online calendar."""
+            #message=message+str(suboption) 
             dispatcher.utter_message(text=message)
 
             # Indicate the submenu in which the options below will be processed

@@ -46,6 +46,8 @@ nlu:
     - see you around
     - bye bye
     - see you later
+    - end
+    - stop
 
 - intent: affirm
   examples: |
@@ -118,3 +120,8 @@ nlu:
     - [6](option)
     - [7](option)
     - [8](option)
+
+- intent: main_menu
+  examples: |
+    - menu
+    - main menu
