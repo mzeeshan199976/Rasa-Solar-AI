@@ -1,4 +1,4 @@
-FROM rasa/rasa:3.3.0
+FROM rasa/rasa:2.8.2
 ADD . /app/
 USER root
 RUN chmod -R 777 /app

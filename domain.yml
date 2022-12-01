@@ -1,4 +1,4 @@
-version: "3.1"
+version: "2.0"
 
 intents:
   - greet1
@@ -25,25 +25,16 @@ entities:
 slots:
   option:
     type: text
-    mappings:
-    - type: from_entity
-      entity: option
   submenu: 
     type: text
     initial_value: "main"
     influence_conversation: false
-    mappings:
-    - type: custom
   suboption:
     type: text
     influence_conversation: false
-    mappings:
-    - type: custom
   finaloption:
     type: text
     influence_conversation: false
-    mappings:
-    - type: custom
 
 responses:
   utter_greet:
